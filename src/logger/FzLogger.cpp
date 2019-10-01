@@ -12,7 +12,8 @@ FzLogger::FzLogger(void) {
 
 void FzLogger::setFileConnection(std::string instance, std::string filename) {
 
-   log4cpp::PropertyConfigurator::configure("/etc/default/fazia/log4cpp.properties");
+   //log4cpp::PropertyConfigurator::configure("/etc/default/fazia/log4cpp.properties");
+   log4cpp::PropertyConfigurator::configure("/home/eindra/config/log4cpp.properties");
    logfile = &(root.getInstance(instance));
    priority = logfile->getChainedPriority();
 
