@@ -52,6 +52,8 @@ private:
 
    RCstate rcstate;
 
+   bool fStore; // boolean to (de)activate storage on disk
+
    void process(void);
 
 public:
@@ -67,6 +69,9 @@ public:
 
    void set_eventfilesize(unsigned long int size);
    void set_eventdirsize(unsigned long int size);
+
+   void set_store_mode(bool store){fStore=store;}
+   bool get_store_mode(){return fStore;}
 
    void setup_newfile(void);
    int setup_newdir(void);

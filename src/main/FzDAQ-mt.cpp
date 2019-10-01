@@ -400,6 +400,11 @@ int main(int argc, char *argv[]) {
               line = lastcmd;
            }
 
+           if(!line.compare("store")) { // store/nostore mode
+              cmderr = false;
+              wr->set_store_mode(!(wr->get_store_mode()));
+           }
+
            if(!line.compare("help")) {
 
               cmderr = false;
@@ -425,6 +430,7 @@ int main(int argc, char *argv[]) {
               cmderr = false;
               std::cout << "current DAQ status: " << state_labels[nm->rc_state()] << std::endl;
               std::cout << "Run Control mode = " << nm->rc_mode() << std::endl;
+              std::cout << "Writer mode = " << (wr->get_store_mode()?"store":"no store") << std::endl;
            }
 
            if(nm->rc_mode() == std::string(RC_MODE_LOCAL)) {
